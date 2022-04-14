@@ -19,7 +19,7 @@ namespace API.Controllers
         [HttpGet]
         public List<Song> Get()
         {
-            IGetAllSongs readObject = new ReadSongData();
+            IGetAllSongs readObject = new SongDatabaseHandler();
             return readObject.GetAllSongs();
         }
 
@@ -28,7 +28,7 @@ namespace API.Controllers
         [HttpGet("{id}", Name = "Get")]
         public Song Get(int id)
         {
-            IGetSong readObject = new ReadSongData();
+            IGetSong readObject = new SongDatabaseHandler();
             return readObject.GetSong(id);
         }
 
@@ -37,7 +37,7 @@ namespace API.Controllers
         [HttpPost]
         public void Post([FromBody] Song value)
         {
-            IAddSong writeObject = new ReadSongData();
+            IAddSong writeObject = new SongDatabaseHandler();
             writeObject.AddSong(value.SongTitle);
         }
 
@@ -46,7 +46,7 @@ namespace API.Controllers
         [HttpPut("{id}")]
         public void Put(int id)
         {
-            IEditSong editObject = new ReadSongData();
+            IEditSong editObject = new SongDatabaseHandler();
             editObject.EditSong(id);
         }
 
@@ -55,8 +55,7 @@ namespace API.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            System.Console.WriteLine(id);
-            IDeleteSong deleteObject = new ReadSongData();
+            IDeleteSong deleteObject = new SongDatabaseHandler();
             deleteObject.DeleteSong(id);
         }
     }

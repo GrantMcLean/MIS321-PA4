@@ -3,7 +3,7 @@ using MySql.Data.MySqlClient;
 
 namespace API.models
 {
-    public class ReadSongData : IGetAllSongs, IGetSong, IAddSong, IDeleteSong, IEditSong
+    public class SongDatabaseHandler : IGetAllSongs, IGetSong, IAddSong, IDeleteSong, IEditSong
     {
         public void AddSong(string songTitle)
         {
